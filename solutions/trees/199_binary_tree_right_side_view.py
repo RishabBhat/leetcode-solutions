@@ -1,15 +1,39 @@
 """
-Problem: [Title]
-Link: https://leetcode.com/problems/[slug]/
-Difficulty: [Easy/Medium/Hard]
+Problem: Binary Tree Right Side View
+Link: https://leetcode.com/problems/binary-tree-right-side-view/
+Difficulty: Medium
 
 Approach:
-- 
+this is just level order traversal, but we only
+save the right most element in each level
 
-Time Complexity: O()
-Space Complexity: O()
+Time Complexity: O(n)
+Space Complexity: O(n)
 """
 
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    pass
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        
+        res = []
+
+        q = deque()
+        q.append(root)
+        while q:
+            right = None
+            for _ in range(len(q)):
+                node = q.popleft()
+
+                if node:
+                    right = node
+                    q.append(node.left)
+                    q.append(node.right)
+            if right:
+                res.append(right.val)
+        return res
