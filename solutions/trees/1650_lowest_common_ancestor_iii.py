@@ -1,33 +1,22 @@
 """
-Problem: [Title]
-Link: https://leetcode.com/problems/[slug]/
-Difficulty: [Easy/Medium/Hard]
+Problem: Lowest Common Ancestor of a Binary Tree III
+Link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/description/
+Difficulty: medium
 
 Approach:
 - 
 
-Time Complexity: O()
-Space Complexity: O()
+Time Complexity: O(h) where h is the height of the tree. In the worst case, both pointers each travel 
+the length of both paths, which are at most h nodes long, so it's O(2h) which simplifies to O(h).
+Space Complexity: O(1)
 """
 
-
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
-        self.parent = None
-"""
 
 class Solution:
     def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
-        # currP = A currQ = A
-        currP, currQ = p, q
+        a, b = p, q
 
-        while currP != currQ:
-            currP = q if not currP else currP.parent
-            currQ = p if not currQ else currQ.parent
-
-        return currP
+        while a != b:
+            a = a.parent if a else q
+            b = b.parent if b else p
+        return a
