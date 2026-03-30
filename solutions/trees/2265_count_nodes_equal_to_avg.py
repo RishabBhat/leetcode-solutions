@@ -10,7 +10,7 @@ then we see if the current node is == average and iterate res
 then we just keep traversing up via dfs
 
 Time Complexity: O(n)
-Space Complexity: O(h) - o(logn) for balanced tree, o(n) for skewed
+Space Complexity: O(h) - o(logn) for balanced tree, o(n) for skewed.
 """
 
 
