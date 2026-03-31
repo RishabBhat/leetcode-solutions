@@ -13,7 +13,7 @@ up to the parent, and to calculate diamater it adds max height from left
 and max height from right.
 
 Time Complexity: O(n)
-Space Complexity: O(h) - o(log n) balanced, o(n) worst case skewed
+Space Complexity: O(h) - o(log n) balanced, o(n) worst case skewed.
 """
 
 
