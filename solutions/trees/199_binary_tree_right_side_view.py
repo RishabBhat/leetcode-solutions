@@ -18,22 +18,27 @@ Space Complexity: O(n)
 #         self.val = val
 #         self.left = left
 #         self.right = right
+import deque
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         
-        res = []
-
+        if not root:
+            return []
+        
         q = deque()
         q.append(root)
+        res = []
         while q:
             right = None
+
             for _ in range(len(q)):
                 node = q.popleft()
 
-                if node:
-                    right = node
+                if node.left:
                     q.append(node.left)
+                if node.right:
                     q.append(node.right)
-            if right:
-                res.append(right.val)
+                right = node.val
+            res.append(right)
         return res
+
