@@ -9,7 +9,7 @@ since its a valid bst, we can quickly make our way to the bottom through dfs. we
 need recursion, we just need to go left if the val is > target and vice versa
 
 Time Complexity: O(log(n))
-Space Complexity: O(h) where h is the height of the tree.
+Space Complexity: O(h) where h is the height of the tree
 -> o(log(n) average or o(n) worst case (skewed))
 """
 
